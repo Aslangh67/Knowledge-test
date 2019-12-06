@@ -12,33 +12,52 @@
 </head>
 
 <body>
+   
     <div class="header">
-        <header></header>
+            <div class="jumbotron">
+                    <h1 class="display-4">Welcome Taker of the test!</h1>
+                    <p class="lead">are you ready to take an easy test that would make you fell good about your knowledge?</p>
+                    <hr class="my-4">
+                    <p>If your answer to the queston above was yes, clik away </p>
+                    <button id="change-over" type="button" class=" start btn btn-success">Click away here!</button>
+                  </div>
     </div>
-    <div class="container">
-        <div class="row">
+    <div class="container jumbotron second-pop">
+        <div class="row mt-5 ">
             <div class="col-md-3">
                 <div>score</div>
             </div>
             <div class="col-md-6">
                 <div>
-                    <textarea class="form-control bg-white text-md-center col-md-12  " readonly 
+                    <textarea id="queMark" class="form-control bg-white text-md-center col-md-12  " readonly 
                     placeholder="questions" ></textarea>
                 </div>
             </div>
             <div class="col-md-3">
-                <div>timer</div>
+                <div id="timer">timer</div>
             </div>
         </div>
         <div class="row">
                 <div class="col-md-3">
-                    <div>score bar</div>
+                    <div></div>
                 </div>
                 <div class="col-md-6">
-                    <div>multiple options</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                    <div class="d-flex justify-content-between mt-5 options-box" id="options">
+                        <button id="opt-one" type="button" class=" clickMe btn btn-info"></button>
+                        <button id="opt-two" type="button" class=" clickMe btn btn-info"></button>
+                        <button id="opt-three" type="button" class=" clickMe btn btn-info"></button>
+                        <button id="opt-four" type="button" class=" clickMe btn btn-info"></button>
+                    </div>
+                </div>
+                <!-- <div class="col-md-12 d-flex justify-content-center mt-5">
+                        <button id="submit" type="button" class="btn btn-primary">Submit</button>
+                </div> -->
+                </div>
                 </div>
                 <div class="col-md-3">
-                    <div>time bar</div>
+                    <div></div>
                 </div>
             </div>
         
