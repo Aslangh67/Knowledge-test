@@ -16,16 +16,16 @@
     <div class="header">
             <div class="jumbotron">
                     <h1 class="display-4">Welcome Taker of the test!</h1>
-                    <p class="lead">are you ready to take an easy test that would make you fell good about your knowledge?</p>
+                    <p class="lead">are you ready to take an easy test that would make you fell good about yer knowledge?</p>
                     <hr class="my-4">
-                    <p>If your answer to the queston above was yes, clik away </p>
+                    <p>If yer answer to the queston above was yes, click away </p>
                     <button id="change-over" type="button" class=" start btn btn-success">Click away here!</button>
                   </div>
     </div>
     <div class="container jumbotron second-pop">
         <div class="row mt-5 ">
             <div class="col-md-3">
-                <div>score</div>
+                <div id="scores-list">score</div>
             </div>
             <div class="col-md-6">
                 <div>
@@ -51,27 +51,30 @@
                         <button id="opt-four" type="button" class=" clickMe btn btn-info"></button>
                     </div>
                 </div>
-                <!-- <div class="col-md-12 d-flex justify-content-center mt-5">
-                        <button id="submit" type="button" class="btn btn-primary">Submit</button>
-                </div> -->
+
                 </div>
                 </div>
                 <div class="col-md-3">
                     <div></div>
                 </div>
             </div>
+           
         
     </div>
-
-
-
-
-
-
-
-
-
-
+    <div id="game-over"class="jumbotron">
+        <h1 class="display-4">You've done yer part!</h1>
+        <p id="score" class="lead"></p>
+        <p  class="lead">Please enter yer initials</p>
+        <hr class="my-4">
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputPassword2" class="sr-only">Password</label>
+              <input id="initials-input" type="text" class="form-control"  >
+            </div>
+            <button class="submit-name" type="button" class="btn btn-primary mb-2">Submit yer name</button>
+          </form>
+        
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

@@ -11,13 +11,25 @@ var optBox = document.querySelector(".options-box")
 var firstPop = document.querySelector(".header")
 var secondPop = document.querySelector(".second-pop")
 var ChangeButton = document.querySelector("#change-over")
+var gameOver= document.querySelector("#game-over")
+var finalScore= document.querySelector("#final-score")
+var scoreShow=document.querySelector("#score")
+var scoreList=document.querySelector("#scores-list")
+var submitName=document.querySelector("#submit-name")
+var initialsInput=document.querySelector("#initials-input")
+scoreList=[]
+finalScore=[]
 var clicked = []
 var i = 0
+var wrong="notYet"
+var gO=[0]
 var timeLeft = questions.length * 15
+
 
 
 function loadFirst() {
   secondPop.style.display = "none"
+  gameOver.style.display= "none"
 }
 
 ChangeButton.onclick = function () {
@@ -39,10 +51,22 @@ options.onclick = function () {
     alert("You got the right answer! now close this")
   } else {
     alert("You got the wrong answer! you've been deducted some seconds! now close this")
-    timeLeft
+    wrong="now"
   }
   i++
-  questionsPage()
+  if(i>=questions.length){
+    secondPop.style.display = "none"
+    gameOver.style.display= ""
+    gO=timeLeft
+    scoreShow.innerHTML=("Your sore is " + gO)
+    storeScore()
+    
+
+    
+  } else {
+
+    questionsPage()
+  }
 }
 
 function questionsPage() {
@@ -57,14 +81,45 @@ function timer() {
   var timeInterval = setInterval(function () {
     timerOnPage.textContent = timeLeft;
     timeLeft--;
+    if(wrong==="now"){
+      timeLeft=timeLeft - 15
+      wrong = "notYet"
+    }
+    
     if (timeLeft === 0) {
       timerOnPage.textContent = "TIME UP";
+
       clearInterval(timeInterval);
+      gameOver.style.display= ""
+      secondPop.style.display = "none"
+      
     }
   }, 1000);
 }
-loadFirst()
+// submitName.onclick=function(){
+// // var namePushed=""
+// // namePushed=initialsInput.textContent
+// // console.log(namePushed);
+// console.log("asd");
 
+// }
+loadFirst()
+console.log(timeLeft);
+
+function storeScore() {
+  // Stringify and set "todos" key in localStorage to todos array
+  localStorage.setItem("Score", JSON.stringify(gO));
+}
+
+// function initScoreList() {
+//   // Get stored todos from localStorage
+//   // Parsing the JSON string to an object
+//   var storedScores = JSON.parse(localStorage.getItem("score"));
+
+//   // If todos were retrieved from localStorage, update the todos array to it
+//   if (storedTodos !== null) {
+//     scoreList = storedScores;
+//   }
 
 
 
