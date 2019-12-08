@@ -17,7 +17,7 @@ var scoreShow=document.querySelector("#score")
 var scoreList=document.querySelector("#scores-list")
 var submitName=document.querySelector("#submit-name")
 var initialsInput=document.querySelector("#initials-input")
-scoreList=[]
+scoreList.textContent="0"
 finalScore=[]
 var clicked = []
 var i = 0
@@ -30,12 +30,25 @@ var timeLeft = questions.length * 15
 function loadFirst() {
   secondPop.style.display = "none"
   gameOver.style.display= "none"
+  
+  initScoreList()
+
+}
+function initScoreList() {
+
+  scoreList.textContent ="Last score "+ JSON.parse(localStorage.getItem("Score"));
+if(scoreList.textContent===null){
+  scoreList.textContent
+}
+  
+console.log("stored score "+ scoreList);
+
 }
 
 ChangeButton.onclick = function () {
   firstPop.style.display = "none"
   secondPop.style.display = ""
-  console.log("show me");
+  
 
   questionsPage()
   timer()
@@ -58,8 +71,9 @@ options.onclick = function () {
     secondPop.style.display = "none"
     gameOver.style.display= ""
     gO=timeLeft
-    scoreShow.innerHTML=("Your sore is " + gO)
+    scoreShow.innerHTML=("Yer score is " + gO)
     storeScore()
+    scoreList.innerHTML=gO
     
 
     
@@ -96,25 +110,16 @@ function timer() {
     }
   }, 1000);
 }
-// submitName.onclick=function(){
-// // var namePushed=""
-// // namePushed=initialsInput.textContent
-// // console.log(namePushed);
-// console.log("asd");
 
-// }
-loadFirst()
 console.log(timeLeft);
+
 
 function storeScore() {
   // Stringify and set "todos" key in localStorage to todos array
-  localStorage.setItem("Score", JSON.stringify(gO));
+  localStorage.setItem("Score",JSON.stringify(gO));
 }
+loadFirst()
 
-// function initScoreList() {
-//   // Get stored todos from localStorage
-//   // Parsing the JSON string to an object
-//   var storedScores = JSON.parse(localStorage.getItem("score"));
 
 //   // If todos were retrieved from localStorage, update the todos array to it
 //   if (storedTodos !== null) {
